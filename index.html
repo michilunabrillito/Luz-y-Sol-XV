@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luz y Sol — Nuestros XV</title>
+  <link rel="icon" type="image/png" href="multimedia/foto-xv.png">
+  <link rel="apple-touch-icon" href="multimedia/foto-xv.png">
+
+  <!-- SEO / Social -->
+  <meta name="description" content="¡Estás invitado a los XV de Luz y Sol! Sábado 3 de enero, 20:30 hs. Elegante sport.">
+  <meta property="og:title" content="Luz y Sol — Nuestros XV">
+  <meta property="og:description" content="¡Estás invitado! Sábado 3 de enero, 20:30 hs. Dress code: Elegante sport.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="multimedia/0.jpg"> <!-- reemplaza por tu imagen -->
+
+  <!-- Tipografías (puedes cambiar luego en el CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Paleta y variables base para fallback mínimo -->
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --fg: #ffffff;
+      --muted: #c8c8d8;
+      --accent: #ffd166; /* dorado suave */
+      --silver: #dfe6f0; /* plateado suave */
+    }
+    /* Fallback simple para que se vea presentable antes del CSS final */
+    body {
+      margin: 0;
+      color: var(--fg);
+      background: radial-gradient(1200px 800px at 70% -10%, #141421 0%, var(--bg) 40%), var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      background: url('multimedia/0.jpg') center center / cover no-repeat fixed;
+    }
+
+    .container { width: 92%; max-width: 1100px; margin: 0 auto; }
+    header.hero {
+      min-height: 70vh;
+      display: grid; place-items: center;
+      text-align: center; padding: 6rem 0 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 8vw, 6.5rem); /* más grande en todos los tamaños */
+      letter-spacing: 0.02em;
+    }
+    .hero .subtitle { color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.3rem); margin-top: 0.8rem; }
+    .stars {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, #fff 60%, transparent 61%),
+        radial-gradient(1px 1px at 80% 20%, #fff 60%, transparent 61%),
+        radial-gradient(1px 1px at 60% 70%, #fff 60%, transparent 61%),
+        radial-gradient(1px 1px at 30% 80%, #fff 60%, transparent 61%),
+        radial-gradient(1px 1px at 50% 50%, #fff 60%, transparent 61%);
+      opacity: 0.4;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid #ffffff22;
+      border-radius: 999px;
+      color: var(--silver);
+      backdrop-filter: blur(6px);
+      background: #ffffff08;
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      text-align: center; /* centra todo el contenido de cada sección */
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto; /* centra el bloque de texto */
+    }
+    h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      margin: 0 0 1rem;
+      color: var(--accent); /* dorado */
+    }
+
+    .card {
+        border: 1px solid #ffffff40;
+        background: rgba(0, 0, 0, 0.55); /* negro con 55% de opacidad */
+        border-radius: 18px;
+        padding: 1.5rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 0 20px #00000060;
+    }
+    .hero .title, .hero .subtitle {
+        text-shadow: 0 0 6px #000000aa;
+    }
+    .music-player {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .music-player audio {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      background: #ffcc00;
+      box-shadow: 0 0 12px #ffcc00aa;
+      filter: hue-rotate(10deg);
+    }
+    .grid {
+      display: grid; gap: 1.2rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: 1.2fr 1fr; }
+    }
+    .datebox {
+      display: grid; gap: 0.6rem;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+    .datebox .unit {
+      padding: 1rem 0.8rem; border-radius: 14px;
+      background: #ffffff10; border: 1px solid #ffffff12;
+    }
+    .datebox .num { font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 600; color: var(--accent); }
+    .datebox .lab { color: var(--muted); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .label { color: var(--muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; }
+    .value { font-size: 1.4rem; font-weight: 600; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 1.1rem; border-radius: 12px;
+      background: linear-gradient(180deg, #ffe09a, #ffcc66);
+      color: #1a1408; font-weight: 600; border: none; cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+      text-decoration: none; /* 🔑 quita el subrayado */
+    }
+    .cta:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      background: #000000; /* fondo negro */
+      color: var(--accent); /* texto dorado */
+      border-top: 1px solid #ffd16655; /* línea superior en dorado suave */
+    }
+    footer p {
+      text-shadow: 0 0 8px #ffd16655;
+    }
+    .divider { height: 1px; background: #ffffff14; margin: 2rem 0; }
+    .dc-badge { display: inline-flex; gap: 0.6rem; align-items: center; padding: 0.7rem 1rem; border-radius: 999px; border: 1px dashed #ffffff33; color: var(--silver); }
+    .dc-icon {
+      width: 20px; height: 20px; border-radius: 50%;
+      background:
+        radial-gradient(8px 8px at 50% 60%, #ffd166 40%, transparent 41%),
+        radial-gradient(7px 7px at 55% 30%, #fff 35%, transparent 36%);
+      box-shadow: 0 0 12px #ffd16655;
+    }
+    .playlist {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .playlist h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      margin-bottom: 1rem;
+      color: var(--accent); /* dorado */
+    }
+
+    .playlist .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero-image {
+      text-align: center;
+      margin: 2rem 0; /* espacio arriba y abajo */
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px; /* opcional, esquinas redondeadas */
+      box-shadow: 0 0 20px #00000060; /* opcional, sombra elegante */
+    }
+
+    @media (max-width: 600px) {
+      header.hero {
+        padding: 3rem 0 2rem; /* menos espacio en la portada */
+        min-height: 60vh;     /* más compacto en móvil */
+      }
+
+      section {
+        padding: 2rem 0; /* reduce el espacio vertical en cada sección */
+      }
+
+      h2 {
+        font-size: 1.4rem; /* títulos un poco más chicos en celular */
+      }
+
+      .lead {
+        font-size: 0.95rem; /* texto más compacto */
+        max-width: 90%;     /* ocupa más ancho, menos alto */
+      }
+
+      .card {
+        padding: 1rem; /* reduce el padding interno de las tarjetas */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fondo estelar sutil -->
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- Hero -->
+  <header class="hero" role="banner" aria-label="Portada de la invitación">
+    <div class="container">
+      <h1 class="title">Luz y Sol<br>Nuestros XV</h1>
+      <p class="subtitle">Una noche para celebrar bajo un cielo de oro y plata.</p>
+    </div>
+  </header>
+
+  <!-- Imagen centrada después del header -->
+  <div class="hero-image">
+    <img src="multimedia/foto-xv.png" alt="Imagen especial de Luz y Sol" />
+  </div>
+
+  <!-- Invitación -->
+  <main id="contenido" class="container" role="main">
+    <section aria-labelledby="inv-title">
+      <h2 id="inv-title">¡Estás invitado!</h2>
+      <p class="lead">
+        Será una ocasión muy especial para nosotros, y nos encantaría compartirla con vos.
+        Esperamos que puedas acompañarnos y celebrar juntos un momento que recordaremos siempre.
+      </p>
+    </section>
+
+    <!-- Fecha / Countdown / Datos -->
+    <section aria-labelledby="det-title">
+      <h2 id="det-title">Detalles del evento</h2>
+
+      <div class="grid">
+        <!-- Columna izquierda: Fecha + countdown -->
+        <div class="card">
+          <p class="label">Cuándo</p>
+          <p class="value">Sábado 3 de enero · 20:30 hs</p>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+          <p class="label">Faltan</p>
+          <div class="datebox" aria-live="polite" aria-label="Cuenta regresiva">
+            <div class="unit">
+              <div id="cd-days" class="num">—</div>
+              <div class="lab">Días</div>
+            </div>
+            <div class="unit">
+              <div id="cd-hours" class="num">—</div>
+              <div class="lab">Horas</div>
+            </div>
+            <div class="unit">
+              <div id="cd-mins" class="num">—</div>
+              <div class="lab">Min</div>
+            </div>
+            <div class="unit">
+              <div id="cd-secs" class="num">—</div>
+              <div class="lab">Seg</div>
+            </div>
+          </div>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+        </div>
+
+        <!-- Columna derecha: Lugar + Dress code -->
+        <div class="card">
+          <p class="label">Dónde</p>
+          <p class="value" id="venue-name">Salón Principal</p>
+          <p class="lead" id="venue-address">Av. Senador Morón 548, Bella Vista.</p>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+          <p class="label">Dress code</p>
+          <div class="dc-badge" aria-label="Dress code Elegante Sport">
+            <span class="dc-icon" aria-hidden="true"></span>
+            <span>Elegante sport</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="cta" id="maps-link" href="https://maps.app.goo.gl/z4HRKmknm7hmpUX56" target="_blank" rel="noopener">
+              <span aria-hidden="true">📍</span>
+              Ver en mapas
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="playlist" aria-labelledby="playlist-title">
+      <h2 id="playlist-title">Playlist de la noche</h2>
+      <p class="lead">
+        ¡Queremos que esta noche sea inolvidable!<br>
+        Tocá el botón de abajo para agregar tu canción a nuestra playlist y que todos podamos disfrutarla durante la fiesta.
+      </p>
+
+      <div class="card" style="text-align: center; margin-top: 1.5rem;">
+        <a class="cta" href="https://open.spotify.com/playlist/1yBWpxbD8nWc6RxS89Jiqz?si=lzojhmo9SSSWxnGObsqYAA&pt=1c5fdfac4e15fa36984dcf3067579914&pi=4hfnLVTRScmUq" target="_blank" rel="noopener">
+          <span aria-hidden="true">🎶</span>
+          Agregá una canción
+        </a>
+      </div>
+    </section>
+
+    <section class="album" aria-labelledby="album-title">
+      <h2 id="album-title">📸 Álbum de fotos</h2>
+      <p class="lead">
+        Queremos que esta noche quede en el recuerdo de todos.<br>
+        Subí tus fotos al álbum y compartí la magia del momento.
+      </p>
+
+      <div class="card" style="text-align: center; margin-top: 1.5rem;">
+        <div style="margin-top: 1rem;">
+          <img src="multimedia/Luz_y_Sol_-_Nuestros_XV-1024.png" alt="QR para subir fotos" style="max-width:150px;">
+        </div>
+        <a class="cta" href="https://drive.google.com/drive/folders/1F3JzeZJWGxmKQ9ti-T2WWNmp-DwfdbmX?usp=sharing" target="_blank" rel="noopener">
+          <span aria-hidden="true">📷</span>
+          Subí tus fotos
+        </a>
+      </div>
+    </section>
+
+    <!-- RSVP / contacto -->
+    <section aria-labelledby="rsvp-title">
+      <h2 id="rsvp-title">Confirmación</h2>
+      <p class="lead"><br>
+        ¡Nos encantaría compartir este momento con vos!<br>
+        Por favor, envia tu respuesta al siguiente número.
+      </p>
+
+      <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card" style="text-align: center;">
+          <p class="label">Confirmar por WhatsApp</p>
+          <p class="lead">Silvi (mamá de Luz y Sol)</p>
+
+          <a class="cta" href="https://wa.me/5491130528930?text=Hola%20Silvi%2C%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Luz%20y%20Sol.%20Gracias%21" target="_blank" rel="noopener">
+            <span aria-hidden="true"></span>
+            Enviar mensaje
+          </a>
+
+          <p class="lead" style="margin-top: 1rem; font-size: 0.95rem;">
+            También podés escribirnos si tenés dudas o querés dejar un mensajito 💌
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>Con cariño, Luz y Sol — Nuestros XV</p>
+      <p style="margin-top:0.5rem;">Gracias por ser parte de este momento.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const EVENT_DATE = new Date('2026-01-03T20:30:00-03:00');
+      const VENUE_NAME = 'Salón Principal';
+      const VENUE_ADDRESS = 'Av. Senador Morón 548, Bella Vista.';
+      const MAPS_QUERY = `${VENUE_NAME} ${VENUE_ADDRESS}`;
+      const WHATSAPP_NUMBER = '54911XXXXXXX';
+      const RSVP_EMAIL = 'luyysol@example.com';
+
+      document.getElementById('venue-name').textContent = VENUE_NAME;
+      document.getElementById('venue-address').textContent = VENUE_ADDRESS;
+
+      const d = document.getElementById('cd-days');
+      const h = document.getElementById('cd-hours');
+      const m = document.getElementById('cd-mins');
+      const s = document.getElementById('cd-secs');
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = EVENT_DATE - now;
+
+        if (diff <= 0) {
+          d.textContent = '0';
+          h.textContent = '0';
+          m.textContent = '0';
+          s.textContent = '0';
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        d.textContent = String(days);
+        h.textContent = String(hours).padStart(2, '0');
+        m.textContent = String(mins).padStart(2, '0');
+        s.textContent = String(secs).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      const rsvpForm = document.getElementById('rsvp-form');
+      if (rsvpForm) {
+        rsvpForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const data = new FormData(e.target);
+          const nombre = data.get('nombre') || 'Invitado/a';
+          const asistencia = data.get('asistencia');
+          alert(`¡Gracias, ${nombre}! Recibimos tu respuesta: ${asistencia || 'sin seleccionar'}.`);
+          e.target.reset();
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
